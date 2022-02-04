@@ -1,5 +1,18 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    
+    Add a new gym class
+    <form action="/gym_classes" method="post">
+        <label for="name">Class name:</label>
+        <input type="text" id="name" name="name">
+        <label for="instructor">Instructor:</label>
+        <input type="text" id="instructor" name="instructor">
+        <label for="location">Location:</label>
+        <input type="text" id="location" name="location">
+        <label for="date">Date:</label>
+        <input type="text" id="date" name="date">
+        <label for="time">Time:</label>
+        <input type="text" id="time" name="time">
+        <button type="submit">Add Class</button>
+    </form>
 {% endblock content %}
