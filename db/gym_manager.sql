@@ -1,5 +1,5 @@
-DROP TABLE IF EXISTS members
-DROP TABLE IF EXISTS gym_classes
+DROP TABLE IF EXISTS members;
+DROP TABLE IF EXISTS gym_classes;
 
 CREATE TABLE members (
     id SERIAL PRIMARY KEY,
@@ -10,8 +10,8 @@ CREATE TABLE members (
 CREATE TABLE gym_classes (
     id SERIAL PRIMARY KEY,
     name VARCHAR(255),
-    location VARCHAR(255),
     instructor VARCHAR(255),
+    location VARCHAR(255),
     date VARCHAR(255),
     time VARCHAR(255)
 );
