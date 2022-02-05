@@ -1,18 +1,34 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<h2>Member Details</h2>
-<ul>
-    <li>{{member.first_name}}</li>
-    <li>{{member.last_name}}</li>
-    <li>{{member.phone_number}}</li>
-    <li>{{member.email}}</li>
-</ul>
+<aside>
+    <h2>Member Details</h2>
+    <ul>
+        <li>{{ member.first_name }}</li>
+        <li>{{ member.last_name }}</li>
+        <li>{{ member.phone_number }}</li>
+        <li>{{ member.email }}</li>
+        <li><a href="/members/{{ member.id }}/edit">Edit Details</a></li>
+    </ul>
+    <form action="/members/{{ member.id }}/delete" method=""POST>
+        <button>Delete Member</button>
+    </form>
+</aside>
+<section>
+    <h2>Member bookings</h2>
+    {% for gym_class in gym_classes %}
+    <ul>
+        <li>{{ gym_class.name }}</li>
+        <li>{{ gym_class.location }}</li>
+        <li>{{ gym_class.instructor }}</li>
+        <li>{{ gym_class.date }}</li>
+        <li>{{ gym_class.time }}</li>
+    </ul>
+    {% endfor %}
 
-<a href="/members/{{member.id}}/edit">Edit Details</a>
+</section>
 
-<form action="/members/{{member.id}}/delete" method=""POST>
-    <button>Delete Member</button>
-</form>
+
+
     
 {% endblock %}

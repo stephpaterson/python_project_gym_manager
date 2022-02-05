@@ -7,9 +7,15 @@ nav {
     color: white;
 }
 
+nav>ul {
+    display: flex;
+    justify-content: flex-start;
+}
+
 nav>ul>li {
     list-style: none;
-    padding: 2px;
+    padding: 10px;
+    border-right: white solid 1px;
 }
 
 nav>ul>li>a {
@@ -19,6 +25,7 @@ nav>ul>li>a {
 
 main {
     display: flex;
+    flex-flow: row wrap ;
     justify-content: space-around;
 }
 
@@ -29,3 +36,17 @@ aside {
 section {
     width: 65%;
 }
+
+hgroup {
+    display: flex;
+    justify-content: space-between;
+    align-items:baseline;
+    width: 80%;
+}
+
+.form-new {
+    border: #73174B solid 2px;
+    border-radius: 5px;
+}
+
+

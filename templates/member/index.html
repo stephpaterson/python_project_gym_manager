@@ -2,17 +2,19 @@
 
 {% block content %}
 
+<hgroup>
 <h2>Member List</h2>
-
 <a href="/members/new">Add New Member</a>
+</hgroup>
 
 <table>
     <thead>
         <tr>
-            <td>First name</td>
-            <td>Last name</td>
-            <td>Phone number</td>
-            <td>Email</td>
+            <th>First name</th>
+            <th>Last name</th>
+            <th>Phone number</th>
+            <th>Email</th>
+            <th></th>
         </tr>
     </thead>
     <tbody>
@@ -22,7 +24,6 @@
         <td>{{ member.last_name }}</td>
         <td>{{ member.phone_number }}</td>
         <td>{{ member.email }}</td>
-        <td>{{ member.id }}</td>
         <td><a href="/members/{{member.id}}">View Details</a></td>
         </tr>
         {% endfor %}    

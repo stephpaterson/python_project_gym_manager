@@ -1,0 +1,21 @@
+table {
+    table-layout: fixed;
+    width: 80%;
+    border-collapse: collapse;
+    border: #73174B solid 2px;
+}
+
+thead {
+    background-color: #73174B;
+    color: white;
+}
+
+th {
+    padding: 10px;
+    text-align: left;
+}
+
+td {
+    padding: 5px;
+    text-align: left;
+}

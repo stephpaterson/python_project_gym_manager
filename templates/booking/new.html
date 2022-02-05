@@ -2,21 +2,22 @@
 
 {% block content  %}
 <h2>Add New Booking</h2>
-
-<form action="/bookings" method="post">
-    <label for="gym_class_id">Class:</label>
-    <select name="gym_class_id" id="gym_class_id">
-        {% for gym_class in gym_classes %}
-            <option value="{{gym_class.id}}">{{ gym_class.name}}</option>
-        {% endfor %}
-    </select>
-    <label for="member_id">Member:</label>
-    <select name="member_id" id="member_id">
-        {% for member in members %}
-            <option value="{{member.id}}">{{ member.first_name}}</option>
-        {% endfor %}
-    </select>
-    <input type="submit" value="Book">
-</form>
+<section class="form-new">
+    <form action="/bookings" method="post">
+        <label for="gym_class_id">Class:</label>
+        <select name="gym_class_id" id="gym_class_id">
+            {% for gym_class in gym_classes %}
+                <option value="{{gym_class.id}}">{{ gym_class.name}}</option>
+            {% endfor %}
+        </select>
+        <label for="member_id">Member:</label>
+        <select name="member_id" id="member_id">
+            {% for member in members %}
+                <option value="{{member.id}}">{{ member.first_name}}</option>
+            {% endfor %}
+        </select>
+        <input type="submit" value="Book">
+    </form>
+</section>
 
 {% endblock  %}

@@ -1,3 +1,4 @@
+from models.gym_class import GymClass
 from models.member import Member
 from db.run_sql import run_sql
 
@@ -59,3 +60,21 @@ def delete(id):
     sql = "DELETE FROM members WHERE id = %s"
     values =[id]
     run_sql(sql, values)
+
+def gym_classes(member):
+
+    gym_classes = []
+
+    sql = """
+    SELECT gym_classes.* FROM gym_classes
+    INNER JOIN bookings
+    ON bookings.gym_class_id = gym_classes.id
+    WHERE member_id = %s
+    """
+    values = [member.id]
+    results = run_sql(sql, values)
+
+    for row in results:
+        gym_class = GymClass(row['name'], row['instructor'], row['location'], row['date'], row['time'], row['id'])
+        gym_classes.append(gym_class)
+    return gym_classes
