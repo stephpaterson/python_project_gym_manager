@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block content  %}
+<h2>Booking Details</h2>
+
+<ul>
+    <li>Member name: {{booking.member.first_name}} {{ booking.member.last_name }}</li>
+    <li>Class name: {{booking.gym_class.name}}</li>
+</ul>
+
+{% endblock  %}

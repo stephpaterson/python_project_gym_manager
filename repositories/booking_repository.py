@@ -25,14 +25,14 @@ def select_by_id(id):
 
     booking = None
 
-    sql ="SELECT * bookings WHERE id = %s"
+    sql ="SELECT * FROM bookings WHERE id = %s"
     values = [id]
-    result = run_sql(sql, values)
+    result = run_sql(sql, values)[0]
 
     if result is not None:
         member = member_repo.select_by_id(result['member_id'])
         gym_class = gym_class_repo.select_id(result['gym_class_id'])
-        booking = Booking(member, gym_class)
+        booking = Booking(member, gym_class, id)
 
     return booking
 
