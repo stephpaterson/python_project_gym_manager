@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>Member Details</h2>
+<ul>
+    <li>{{member.first_name}}</li>
+    <li>{{member.last_name}}</li>
+    <li>{{member.phone_number}}</li>
+    <li>{{member.email}}</li>
+</ul>
+
+<a href="/members/{{member.id}}/edit">Edit Details</a>
+    
+{% endblock %}

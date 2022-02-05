@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h2>Edit Member details</h2>
+
+<form action="/members/{{member.id}}" method="post">
+    <label for="first_name">First name:</label>
+    <input type="text" id="fist_name" name="first_name" value="{{ member.first_name }}">
+    <label for="last_name">Last name:</label>
+    <input type="text" id="last_name" name="last_name" value="{{ member.last_name }}">
+    <label for="phone_number">Phone number:</label>
+    <input type="text" id="phone_number" name="phone_number" value="{{ member.phone_number }}">
+    <label for="email">Email:</label>
+    <input type="text" id="email" name="email" value="{{ member.email }}">
+    <button type="submit">Update</button>
+</form>
+    
+{% endblock %}

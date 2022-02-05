@@ -46,10 +46,7 @@ def select_all():
 def select_id(id):
     gym_class = None
 
-    sql = """
-    SELECT * FROM gym_classes
-    WHERE id = %s
-    """
+    sql = "SELECT * FROM gym_classes WHERE id = %s"
     values = [id]
     result = run_sql(sql, values)[0]
 

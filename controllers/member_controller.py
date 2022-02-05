@@ -1,3 +1,4 @@
+from re import M
 from flask import Flask, render_template, request, redirect, Blueprint
 
 import repositories.member_repository as member_repo
@@ -6,7 +7,7 @@ from models.member import Member
 members_blueprint = Blueprint("members", __name__)
 
 @members_blueprint.route('/members', methods=['GET'])
-def show():
+def show_all():
     members = member_repo.select_all()
     return render_template('/member/index.html', members=members)
 
@@ -22,4 +23,24 @@ def create_member():
     email = request.form['email']
     member = Member(first_name, last_name, phone_number, email)
     member_repo.save(member)
+    return redirect('/members')
+
+@members_blueprint.route("/members/<id>", methods=['GET'])
+def show_member(id):
+    member = member_repo.select_by_id(id)
+    return render_template('/member/show.html', member=member)
+
+@members_blueprint.route("/members/<id>/edit", methods=['GET'])
+def edit_member(id):
+    member = member_repo.select_by_id(id)
+    return render_template('/member/edit.html', member=member)
+
+@members_blueprint.route("/members/<id>", methods=['POST'])
+def update_member(id):
+    first_name = request.form['first_name']
+    last_name = request.form['last_name']
+    phone_number = request.form['phone_number']
+    email = request.form['email']
+    member = Member(first_name, last_name, phone_number, email, id)
+    member_repo.update(member)
     return redirect('/members')
