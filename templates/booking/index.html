@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block content  %}
+A list of bookings
+
+<table>
+    <thead>
+        <tr>
+            <td>Member name</td>
+            <td>Class name</td>
+        </tr>
+    </thead>
+    <tbody>
+        {% for booking in bookings %}
+        <tr>
+            <td>{{booking.member.first_name}}</td>
+            <td>{{booking.gym_class.name}}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+<ul>
+    
+</ul>
+
+
+{% endblock  %}

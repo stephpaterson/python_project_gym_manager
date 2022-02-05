@@ -8,7 +8,10 @@ import repositories.gym_class_repository as gym_class_repo
 
 booking_blueprint = Blueprint("bookings", __name__)
 
-
+@booking_blueprint.route('/bookings')
+def show_all_bookings():
+    bookings = booking_repo.select_all()
+    return render_template('/booking/index.html', bookings=bookings)
 
 @booking_blueprint.route('/bookings/<id>')
 def show_booking(id):
@@ -29,4 +32,9 @@ def create_booking():
     gym_class = gym_class_repo.select_id(gym_class_id)
     booking = Booking(member, gym_class)
     booking_repo.save(booking)
-    return redirect('/')
+    return redirect('/bookings')
+
+@booking_blueprint.route('/bookings/<id>/delete', methods=['POST'])
+def delete_booking(id):
+    booking_repo.delete_by_id(id)
+    return redirect('/bookings')

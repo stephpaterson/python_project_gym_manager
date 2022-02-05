@@ -21,6 +21,20 @@ def save(booking):
     return booking
 # READ
 
+def select_all():
+    bookings = []
+
+    sql = "SELECT * FROM bookings"
+    results = run_sql(sql)
+
+    for row in results:
+        member = member_repo.select_by_id(row['member_id'])
+        gym_class = gym_class_repo.select_id(row['gym_class_id'])
+        booking = Booking(member, gym_class, id)
+        bookings.append(booking)
+
+    return bookings
+
 def select_by_id(id):
 
     booking = None
@@ -38,3 +52,8 @@ def select_by_id(id):
 
 # UPDATE
 # DELETE
+
+def delete_by_id(id):
+    sql = "DELETE FROM bookings WHERE id = %s"
+    values = [id]
+    run_sql(sql, values)

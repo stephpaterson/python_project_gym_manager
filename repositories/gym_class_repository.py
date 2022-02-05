@@ -1,5 +1,6 @@
 from models.gym_class import GymClass
 from db.run_sql import run_sql
+from models.member import Member
 
 # CREATE
 
@@ -84,3 +85,21 @@ def delete(id):
 def delete_all():
     sql = "DELETE FROM gym_classes"
     run_sql(sql)
+
+def members(gym_class):
+
+    members = []
+
+    sql = """
+    SELECT members.* FROM members
+    INNER JOIN bookings
+    ON bookings.member_id = members.id
+    WHERE gym_class_id = %s
+    """
+    values = [gym_class.id]
+    results = run_sql(sql, values)
+
+    for row in results:
+        member = Member(row['first_name'], row['last_name'], row['phone_number'], row['email'])
+        members.append(member)
+    return members
