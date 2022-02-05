@@ -3,27 +3,28 @@
 
 {% block content %}
 
-<h2>Class details</h2>
+
 <aside>
+    <h2>Class details</h2>
     <ul>
         <li>{{gym_class.name}}</li>
         <li>{{gym_class.instructor}}</li>
         <li>{{gym_class.location}}</li>
         <li>{{gym_class.date}}</li>
         <li>{{gym_class.time}}</li>
+        <li><a href="/gym_classes/{{gym_class.id}}/edit">Edit Class</a></li>
     </ul>
-    <a href="/gym_classes/{{gym_class.id}}/edit">Edit Class</a>
-
 </aside>
-<main>
-    <p>A list of members</p>
+
+<section>
+    <h2>A list of members</h2>
     {% for member in members %}
     <ul>
         <li>{{ member.first_name }}</li>
         <li>{{ member.last_name }}</li> 
     </ul>
     {% endfor %}
-</main>
+</section>
 
 
 {% endblock %}

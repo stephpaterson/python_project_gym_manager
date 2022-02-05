@@ -1,0 +1,31 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+nav {
+    background-color: #73174B;
+    color: white;
+}
+
+nav>ul>li {
+    list-style: none;
+    padding: 2px;
+}
+
+nav>ul>li>a {
+    color: white;
+    text-decoration: none;
+}
+
+main {
+    display: flex;
+    justify-content: space-around;
+}
+
+aside {
+    width: 30%;
+}
+
+section {
+    width: 65%;
+}
