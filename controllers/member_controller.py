@@ -6,7 +6,7 @@ from models.member import Member
 
 members_blueprint = Blueprint("members", __name__)
 
-@members_blueprint.route('/members', methods=['GET'])
+@members_blueprint.route('/members')
 def show_all():
     members = member_repo.select_all()
     return render_template('/member/index.html', members=members)
@@ -43,4 +43,9 @@ def update_member(id):
     email = request.form['email']
     member = Member(first_name, last_name, phone_number, email, id)
     member_repo.update(member)
+    return redirect('/members')
+
+@members_blueprint.route("/members/<id>/delete")
+def delete_member(id):
+    member_repo.delete(id)
     return redirect('/members')
