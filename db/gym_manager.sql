@@ -1,3 +1,4 @@
+DROP TABLE IF EXISTS bookings;
 DROP TABLE IF EXISTS members;
 DROP TABLE IF EXISTS gym_classes;
 
@@ -16,4 +17,10 @@ CREATE TABLE gym_classes (
     location VARCHAR(255),
     date VARCHAR(255),
     time VARCHAR(255)
+);
+
+CREATE TABLE bookings (
+    id SERIAL PRIMARY KEY,
+    member_id INT REFERENCES members(id) ON DELETE CASCADE,
+    gym_class_id INT REFERENCES gym_classes(id) ON DELETE CASCADE
 );
