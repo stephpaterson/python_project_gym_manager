@@ -29,3 +29,19 @@ def create_gym_class():
 def show_gym_class(id):
     gym_class = gym_class_repo.select_id(id)
     return render_template('gym_class/show.html', gym_class=gym_class)
+
+@gym_classes_blueprint.route("/gym_classes/<id>/edit", methods=['GET'])
+def edit_class(id):
+    gym_class = gym_class_repo.select_id(id)
+    return render_template('/gym_class/edit.html', gym_class=gym_class)
+
+@gym_classes_blueprint.route("/gym_classes/<id>", methods=['POST'])
+def update_class(id):
+    name = request.form['name']
+    instructor = request.form['instructor']
+    location = request.form['location']
+    date = request.form['date']
+    time = request.form['time']
+    gym_class = GymClass(name, instructor, location, date, time, id)
+    gym_class_repo.update(gym_class)
+    return redirect('/gym_classes')

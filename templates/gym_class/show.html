@@ -1,1 +1,17 @@
+
+{% extends 'base.html' %}
+
+{% block content %}
+
 This is where we show the class
+
+<ul>
+    <li>{{gym_class.name}}</li>
+    <li>{{gym_class.instructor}}</li>
+    <li>{{gym_class.location}}</li>
+    <li>{{gym_class.date}}</li>
+    <li>{{gym_class.time}}</li>
+</ul>
+<a href="/gym_classes/{{gym_class.id}}/edit">Edit Class</a>
+
+{% endblock %}

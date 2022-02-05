@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    Edit class details
+    <form action="/gym_classes/{{gym_class.id}}" method="post">
+        <label for="name">Class name:</label>
+        <input type="text" id="name" name="name" value="{{gym_class.name}}">
+        <label for="instructor">Instructor:</label>
+        <input type="text" id="instructor" name="instructor" value="{{gym_class.instructor}}">
+        <label for="location">Location:</label>
+        <input type="text" id="location" name="location" value="{{gym_class.location}}">
+        <label for="date">Date:</label>
+        <input type="text" id="date" name="date" value="{{gym_class.date}}">
+        <label for="time">Time:</label>
+        <input type="text" id="time" name="time" value="{{gym_class.time}}">
+        <button type="submit">Update</button>
+    </form>
+{% endblock content %}
