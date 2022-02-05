@@ -24,3 +24,8 @@ def create_gym_class():
     gym_class = GymClass(name, instructor, location, date, time)
     gym_class_repo.save(gym_class)
     return redirect('/gym_classes')
+
+@gym_classes_blueprint.route("/gym_classes/<id>", methods = ['GET'])
+def show_gym_class(id):
+    gym_class = gym_class_repo.select_id(id)
+    return render_template('gym_class/show.html', gym_class=gym_class)

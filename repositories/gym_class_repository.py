@@ -1,3 +1,4 @@
+from cProfile import run
 from models.gym_class import GymClass
 from db.run_sql import run_sql
 
@@ -43,6 +44,47 @@ def select_all():
 
 # Select by id
 
+def select_id(id):
+    gym_class = None
+
+    sql = """
+    SELECT * FROM gym_classes
+    WHERE id = %s
+    """
+    values = [id]
+    result = run_sql(sql, values)[0]
+
+    if result is not None:
+        gym_class = GymClass(
+            result['name'], 
+            result['instructor'], 
+            result['location'],
+            result['date'],
+            result['time'],
+            result['id'])
+
+    return gym_class    
+
+
 # UPDATE
 
+def update(gym_class):
+    sql = """
+    UPDATE gym_classes 
+    SET (name, instructor, location, date, time) = (%s, %s, %s, %s, %s) 
+    WHERE id = %s
+    """
+    values = [gym_class.name, gym_class.instructor, gym_class.location, gym_class.date, gym_class.time, gym_class.id]
+    run_sql(sql, values)
+
+
 # DELETE
+
+def delete(id):
+    sql = "DELETE FROM gym_classes WHERE id = %s"
+    values = [id]
+    run_sql(sql, values)
+
+def delete_all():
+    sql = "DELETE FROM gym_classes"
+    run_sql(sql)
