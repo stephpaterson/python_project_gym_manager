@@ -1,4 +1,3 @@
-from cProfile import run
 from models.gym_class import GymClass
 from db.run_sql import run_sql
 
