@@ -1,4 +1,3 @@
-
 class GymClass:
 
     def __init__(self, name, instructor, location, date, time, capacity, id = None ):
