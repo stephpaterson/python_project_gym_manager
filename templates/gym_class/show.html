@@ -27,12 +27,20 @@
 
 <section>
     <h2>A list of members</h2>
-    {% for member in members %}
+    
     <ul>
-        <li>{{ member.first_name }}</li>
-        <li>{{ member.last_name }}</li> 
+        {% for booking in bookings %}
+        <li>{{ booking.member.first_name }} {{ booking.member.last_name }}</li>
+        <li>
+            <form action="/bookings/{{ booking.id }}/delete" method="POST">
+                <button>Delete Booking</button>
+            </form>
+        </li>
+        {% endfor %}
     </ul>
-    {% endfor %}
+
+    <p><a href="/bookings/new">Add New Booking</a></p>
+    
 </section>
 
 

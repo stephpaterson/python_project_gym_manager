@@ -25,6 +25,7 @@ def select_all():
     
     sql = """
     SELECT * FROM gym_classes
+    ORDER BY date, time
     """
     results = run_sql(sql)
 
@@ -102,6 +103,6 @@ def members(gym_class):
     results = run_sql(sql, values)
 
     for row in results:
-        member = Member(row['first_name'], row['last_name'], row['phone_number'], row['email'])
+        member = Member(row['first_name'], row['last_name'], row['phone_number'], row['email'], row['id'])
         members.append(member)
     return members

@@ -18,15 +18,23 @@
 </aside>
 <section>
     <h2>Member bookings</h2>
-    {% for gym_class in gym_classes %}
     <ul>
-        <li>{{ gym_class.name }}</li>
-        <li>{{ gym_class.location }}</li>
-        <li>{{ gym_class.instructor }}</li>
-        <li>{{ gym_class.date }}</li>
-        <li>{{ gym_class.time }}</li>
+
+        {% for booking in bookings %}
+        <li>{{ booking.gym_class.name }}</li>
+        <li>{{ booking.gym_class.instructor }}</li>
+        <li>{{ booking.gym_class.location }}</li>
+        <li>{{ booking.gym_class.date }}</li>
+        <li>{{ booking.gym_class.time }}</li>
+        <li>
+            <form action="/bookings/{{ booking.id }}/delete" method="POST">
+                <button>Delete Booking</button>
+            </form>
+        </li>
+        {% endfor %}
+        <li><a href="/bookings/new">Add New Booking</a></li>
     </ul>
-    {% endfor %}
+    
 
 </section>
 

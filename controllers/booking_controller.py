@@ -1,4 +1,4 @@
-from flask import Flask, render_template, Blueprint, redirect, request
+from flask import Flask, render_template, Blueprint, redirect, request, url_for
 
 from models.booking import Booking
 
@@ -32,7 +32,7 @@ def create_booking():
     gym_class = gym_class_repo.select_id(gym_class_id)
     booking = Booking(member, gym_class)
     booking_repo.save(booking)
-    return redirect('/bookings')
+    return redirect('/gym_classes')
 
 @booking_blueprint.route('/bookings/<id>/delete', methods=['POST'])
 def delete_booking(id):

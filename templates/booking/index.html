@@ -10,6 +10,7 @@ A list of bookings
         <tr>
             <td>Member name</td>
             <td>Class name</td>
+            <td></td>
         </tr>
     </thead>
     <tbody>
@@ -17,6 +18,7 @@ A list of bookings
         <tr>
             <td>{{booking.member.first_name}}</td>
             <td>{{booking.gym_class.name}}</td>
+            <td><a href="/bookings/{{ booking.id }}">View Details</a></td>
         </tr>
         {% endfor %}
     </tbody>

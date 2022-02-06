@@ -30,7 +30,7 @@ def select_all():
     for row in results:
         member = member_repo.select_by_id(row['member_id'])
         gym_class = gym_class_repo.select_id(row['gym_class_id'])
-        booking = Booking(member, gym_class, id)
+        booking = Booking(member, gym_class, row['id'])
         bookings.append(booking)
 
     return bookings
@@ -57,3 +57,36 @@ def delete_by_id(id):
     sql = "DELETE FROM bookings WHERE id = %s"
     values = [id]
     run_sql(sql, values)
+
+def booking_by_gym_class(gym_class):
+
+    bookings = []
+
+    sql= """
+    SELECT bookings.* FROM bookings
+    WHERE gym_class_id = %s
+    """
+    values = [gym_class.id]
+    results = run_sql(sql, values)
+
+    for row in results:
+        member = member_repo.select_by_id(row['member_id'])
+        booking = Booking(member, gym_class, row['id'])
+        bookings.append(booking)
+    return bookings
+
+def booking_by_member(member):
+    bookings = []
+
+    sql = """
+    SELECT bookings.* FROM bookings
+    WHERE member_id =%s
+    """
+    values = [member.id]
+    results = run_sql(sql, values)
+
+    for row in results:
+        gym_class = gym_class_repo.select_id(row['gym_class_id'])
+        booking = Booking(member, gym_class, row['id'])
+        bookings.append(booking)
+    return bookings
