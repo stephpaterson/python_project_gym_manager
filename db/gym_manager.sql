@@ -16,6 +16,7 @@ CREATE TABLE gym_classes (
     instructor VARCHAR(255),
     location VARCHAR(255),
     date DATE,
+    capacity INT,
     time time
 );
 
