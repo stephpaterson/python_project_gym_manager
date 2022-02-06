@@ -25,6 +25,7 @@ def select_all():
     
     sql = """
     SELECT * FROM gym_classes
+    ORDER BY date
     """
     results = run_sql(sql)
 

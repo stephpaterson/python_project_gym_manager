@@ -15,8 +15,8 @@ CREATE TABLE gym_classes (
     name VARCHAR(255),
     instructor VARCHAR(255),
     location VARCHAR(255),
-    date VARCHAR(255),
-    time VARCHAR(255)
+    date DATE,
+    time time
 );
 
 CREATE TABLE bookings (

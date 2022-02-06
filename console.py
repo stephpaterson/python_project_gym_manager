@@ -9,7 +9,7 @@ import repositories.booking_repository as booking_repo
 
 gym_class_repo.delete_all()
 
-gym_class_1 = GymClass('Spin', 'Beth', 'Studio 1', '1st Feb', '10am')
+gym_class_1 = GymClass('Spin', 'Beth', 'Studio 1', '01/02/2021', '10:00')
 gym_class_repo.save(gym_class_1)
 
 member_1 = Member('David', 'Blunt', '019876', 'david@email.com')
