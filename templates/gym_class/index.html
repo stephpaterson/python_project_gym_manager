@@ -17,6 +17,7 @@
             <th>Location</th>
             <td>Date</th>
             <th>Time</th>
+            <th>Capacity</th>
             <th></th>
             <th></th>
         </tr>
@@ -29,6 +30,7 @@
             <td>{{gym_class.location}}</td>
             <td>{{gym_class.date.strftime('%a %d %B %y')}}</td>
             <td>{{gym_class.time.strftime('%H:%M')}}</td>
+            <td>{{gym_class.capacity}}</td>
             <td><a href="/gym_classes/{{gym_class.id}}">View Details</a></td>
             <td><a href="/bookings/new">Book a Place</a></td>
         </tr>

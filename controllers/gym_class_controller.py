@@ -29,7 +29,8 @@ def create_gym_class():
 def show_gym_class(id):
     gym_class = gym_class_repo.select_id(id)
     members = gym_class_repo.members(gym_class)
-    return render_template('gym_class/show.html', gym_class=gym_class, members=members)
+    spaces = gym_class.capacity_check_space_available(members)
+    return render_template('gym_class/show.html', gym_class=gym_class, members=members, spaces=spaces)
 
 @gym_classes_blueprint.route("/gym_classes/<id>/edit", methods=['GET'])
 def edit_class(id):

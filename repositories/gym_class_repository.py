@@ -7,11 +7,11 @@ from models.member import Member
 def save(gym_class):
 
     sql = """
-    INSERT INTO gym_classes (name, instructor, location, date, time)
-    VALUES (%s, %s, %s, %s, %s)
+    INSERT INTO gym_classes (name, instructor, location, date, time, capacity)
+    VALUES (%s, %s, %s, %s, %s, %s)
     RETURNING id
     """
-    values = [gym_class.name, gym_class.instructor, gym_class.location, gym_class.date, gym_class.time]
+    values = [gym_class.name, gym_class.instructor, gym_class.location, gym_class.date, gym_class.time, gym_class.capacity]
     results = run_sql(sql, values)
     gym_class.id = results[0]['id']
     return gym_class
@@ -25,7 +25,6 @@ def select_all():
     
     sql = """
     SELECT * FROM gym_classes
-    ORDER BY date
     """
     results = run_sql(sql)
 
@@ -36,6 +35,7 @@ def select_all():
             row['location'],
             row['date'],
             row['time'],
+            row['capacity'],
             row['id']
             )
         gym_classes.append(gym_class)
@@ -59,6 +59,7 @@ def select_id(id):
             result['location'],
             result['date'],
             result['time'],
+            result['capacity'],
             result['id'])
 
     return gym_class    
@@ -69,10 +70,10 @@ def select_id(id):
 def update(gym_class):
     sql = """
     UPDATE gym_classes 
-    SET (name, instructor, location, date, time) = (%s, %s, %s, %s, %s) 
+    SET (name, instructor, location, date, time, capacity) = (%s, %s, %s, %s, %s, %s) 
     WHERE id = %s
     """
-    values = [gym_class.name, gym_class.instructor, gym_class.location, gym_class.date, gym_class.time, gym_class.id]
+    values = [gym_class.name, gym_class.instructor, gym_class.location, gym_class.date, gym_class.time, gym_class.capacity, gym_class.id]
     run_sql(sql, values)
 
 

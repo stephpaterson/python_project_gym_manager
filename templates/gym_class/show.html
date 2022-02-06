@@ -11,8 +11,16 @@
         <li>{{gym_class.name}}</li>
         <li>{{gym_class.instructor}}</li>
         <li>{{gym_class.location}}</li>
-        <li>{{gym_class.date}}</li>
-        <li>{{gym_class.time}}</li>
+        <li>{{gym_class.date.strftime('%a %d %B %y')}}</li>
+        <li>{{gym_class.time.strftime('%H:%M')}}</li>
+        <li>{{gym_class.capacity}}</li>
+        <li>
+            {% if spaces == True %}
+            Spaces available
+            {% else %}
+            Class Full
+            {% endif %}
+        </li>
         <li><a href="/gym_classes/{{gym_class.id}}/edit">Edit Class</a></li>
     </ul>
 </aside>
