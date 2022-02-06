@@ -1,5 +1,7 @@
 {% extends 'base.html' %}
 
+{% block title %} Edit Class {% endblock %}
+
 {% block content %}
     Edit class details
     <form action="/gym_classes/{{gym_class.id}}" method="post">
