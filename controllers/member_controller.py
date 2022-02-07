@@ -30,9 +30,8 @@ def create_member():
 @members_blueprint.route("/members/<id>", methods=['GET'])
 def show_member(id):
     member = member_repo.select_by_id(id)
-    gym_classes = member_repo.gym_classes(member)
     bookings = booking_repo.booking_by_member(member)
-    return render_template('/member/show.html', member=member, gym_classes=gym_classes, bookings=bookings)
+    return render_template('/member/show.html', member=member, bookings=bookings)
 
 @members_blueprint.route("/members/<id>/edit", methods=['GET'])
 def edit_member(id):

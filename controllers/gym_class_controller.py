@@ -1,7 +1,8 @@
 from flask import Flask, render_template, request, redirect
 from flask import Blueprint
 from models.gym_class import GymClass
-from repositories.booking_repository import booking_by_gym_class
+from models.booking import Booking
+import repositories.booking_repository as booking_repo
 import repositories.gym_class_repository as gym_class_repo
 
 gym_classes_blueprint = Blueprint("gym_classes", __name__)
@@ -35,10 +36,10 @@ def create_gym_class():
 @gym_classes_blueprint.route("/gym_classes/<id>", methods = ['GET'])
 def show_gym_class(id):
     gym_class = gym_class_repo.select_id(id)
-    members = gym_class_repo.members(gym_class)
-    bookings = booking_by_gym_class(gym_class)
-    spaces = gym_class.capacity_check_space_available(members)
-    return render_template('gym_class/show.html', gym_class=gym_class, members=members, spaces=spaces, bookings=bookings)
+    bookings = booking_repo.booking_by_gym_class(gym_class)
+    booking = bookings[0]
+    availability = booking.spaces_available(bookings, gym_class)
+    return render_template('gym_class/show.html', gym_class=gym_class, availability=availability, bookings=bookings)
 
 @gym_classes_blueprint.route("/gym_classes/<id>/edit", methods=['GET'])
 def edit_class(id):
