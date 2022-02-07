@@ -1,0 +1,41 @@
+.form-new {
+    border: #73174B solid 2px;
+    border-radius: 5px;
+    padding: 20px;
+}
+
+.form-new>form {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+    align-content: space-between;
+}
+
+.form-new>form>div {
+    width: 60%;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.add{
+    background-color: #70ACA1;
+    border: None;
+    border-radius: 5px;
+    padding: 0.25em 0.75em;
+    box-shadow: 3px 3px 3px #618E85 ;
+    min-height: 30px;
+}
+
+label {
+    width: 45%;
+}
+
+input {
+    width: 45%;
+    min-height: 25px;
+    min-width: 20ch;
+}
+
+select {
+    width: 45%;
+}
