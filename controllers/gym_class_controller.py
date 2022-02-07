@@ -10,12 +10,12 @@ gym_classes_blueprint = Blueprint("gym_classes", __name__)
 @gym_classes_blueprint.route("/gym_classes")
 def gym_classes():
     gym_classes = gym_class_repo.select_all()
-    spaces = []
+    gym_class_avail = []
     for gym_class in gym_classes:
-        members = gym_class_repo.members(gym_class)
-        space = gym_class.capacity_check_space_available(members)
-        spaces.append(space)  
-    return render_template("gym_class/index.html", gym_classes=gym_classes, spaces=spaces)
+        count = gym_class_repo.count_members(gym_class)
+        gym_class.set_availability(count)
+        gym_class_avail.append(gym_class)
+    return render_template("gym_class/index.html", gym_classes=gym_classes, gym_class_avail=gym_class_avail)
 
 @gym_classes_blueprint.route("/gym_classes/new", methods = ['GET'])
 def gym_class_new():
@@ -37,8 +37,8 @@ def create_gym_class():
 def show_gym_class(id):
     gym_class = gym_class_repo.select_id(id)
     bookings = booking_repo.booking_by_gym_class(gym_class)
-    booking = bookings[0]
-    availability = booking.spaces_available(bookings, gym_class)
+    member_count = gym_class_repo.count_members(gym_class)
+    availability = gym_class.check_space_available(member_count)
     return render_template('gym_class/show.html', gym_class=gym_class, availability=availability, bookings=bookings)
 
 @gym_classes_blueprint.route("/gym_classes/<id>/edit", methods=['GET'])

@@ -106,3 +106,19 @@ def members(gym_class):
         member = Member(row['first_name'], row['last_name'], row['phone_number'], row['email'], row['id'])
         members.append(member)
     return members
+
+# Count the number of members (bookings) on gym_class
+def count_members(gym_class):
+    count = None
+
+    sql = """
+    SELECT COUNT(*)
+    FROM members
+    INNER JOIN bookings
+    ON bookings.member_id = members.id
+    WHERE gym_class_id = %s
+    """
+    values = [gym_class.id]
+    result = run_sql(sql, values)[0]
+    count = result['count']
+    return count

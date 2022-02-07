@@ -17,9 +17,13 @@ member_repo.save(member_1)
 
 booking_1 = Booking(member_1, gym_class_1)
 booking_repo.save(booking_1)
+booking_2 = Booking(member_1, gym_class_1)
+booking_repo.save(booking_2)
 
+member_count = gym_class_repo.count_members(gym_class_1)
 print(gym_class_repo.select_all())
 print(member_repo.select_all())
+print (member_count)
 
 
 pdb.set_trace()

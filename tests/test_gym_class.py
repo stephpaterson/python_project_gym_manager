@@ -15,6 +15,7 @@ class TestGymClass(unittest.TestCase):
         result = self.gym_class.capacity_check_space_available(self.member_list)
         self.assertEqual(True, result)
 
+    
     def test_capacity_check_full(self):
         result = self.gym_class.capacity_check_space_available(self.member_list_2)
         self.assertEqual(False, result)

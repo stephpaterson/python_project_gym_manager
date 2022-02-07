@@ -6,26 +6,22 @@
 <aside>
     <h2>Member Details</h2>
     <ul>
-        <li>{{ member.first_name }}</li>
-        <li>{{ member.last_name }}</li>
-        <li>{{ member.phone_number }}</li>
-        <li>{{ member.email }}</li>
-        <li><a href="/members/{{ member.id }}/edit">Edit Details</a></li>
+        <li>Name: {{ member.first_name }} {{ member.last_name }}</li>
+        <li>Phone number: {{ member.phone_number }}</li>
+        <li>Email: {{ member.email }}</li>
+        <li><a href="/members/{{ member.id }}/edit">Edit Member Details</a></li>
     </ul>
-    <form action="/members/{{ member.id }}/delete" method="POST">
-        <button>Delete Member</button>
-    </form>
 </aside>
 <section>
     <h2>Member bookings</h2>
     <ul>
 
         {% for booking in bookings %}
-        <li>{{ booking.gym_class.name }}</li>
-        <li>{{ booking.gym_class.instructor }}</li>
-        <li>{{ booking.gym_class.location }}</li>
-        <li>{{ booking.gym_class.date }}</li>
-        <li>{{ booking.gym_class.time }}</li>
+        <li>Class name: {{ booking.gym_class.name }}</li>
+        <li>Instructor: {{ booking.gym_class.instructor }}</li>
+        <li>Location: {{ booking.gym_class.location }}</li>
+        <li>Date: {{ booking.gym_class.date }}</li>
+        <li>Time: {{ booking.gym_class.time }}</li>
         <li>
             <form action="/bookings/{{ booking.id }}/delete" method="POST">
                 <button>Delete Booking</button>

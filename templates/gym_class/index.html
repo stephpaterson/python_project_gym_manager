@@ -24,7 +24,7 @@
         </tr>
     </thead>
     <tbody>
-        {% for gym_class in gym_classes %}
+        {% for gym_class in gym_class_avail %}
         <tr>
             <td>{{gym_class.name}}</td>
             <td>{{gym_class.instructor}}</td>
@@ -32,15 +32,22 @@
             <td>{{gym_class.date.strftime('%a %d %b %y')}}</td>
             <td>{{gym_class.time.strftime('%H:%M')}}</td>
             <td>{{gym_class.capacity}}</td>
-            <td>
-                {% if space == True %}
+            
+                {% if gym_class.availability == True %}
+                <td>
                 Spaces available
+                </td>
+                <td><a href="/gym_classes/{{gym_class.id}}/bookings/new">Book a Place</a></td>
                 {% else %}
+                <td>
                 Class Full
+                </td>
+                <td>
+                    Booking not available
+                </td>
                 {% endif %}
-            </td>
-            <td><a href="/gym_classes/{{gym_class.id}}">View Details</a></td>
-            <td><a href="/bookings/new">Book a Place</a></td>
+            <td><a href="/gym_classes/{{gym_class.id}}">View Class Details</a></td>
+
         </tr>
         {% endfor %}
     </tbody>

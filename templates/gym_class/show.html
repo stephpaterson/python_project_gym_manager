@@ -8,13 +8,12 @@
 <aside>
     <h2>Class details</h2>
     <ul>
-        <li>{{gym_class.name}}</li>
-        <li>{{gym_class.instructor}}</li>
-        <li>{{gym_class.location}}</li>
-        <li>{{gym_class.date.strftime('%a %d %B %y')}}</li>
-        <li>{{gym_class.time.strftime('%H:%M')}}</li>
-        <li>{{gym_class.capacity}}</li>
-        <li>{{gym_class.id}}</li>
+        <li>Class name: {{gym_class.name}}</li>
+        <li>Instructor: {{gym_class.instructor}}</li>
+        <li>Location: {{gym_class.location}}</li>
+        <li>Date: {{gym_class.date.strftime('%a %d %B %y')}}</li>
+        <li>Time: {{gym_class.time.strftime('%H:%M')}}</li>
+        <li>Capacity: {{gym_class.capacity}}</li>
         
         <li><a href="/gym_classes/{{gym_class.id}}/edit">Edit Class</a></li>
     </ul>
@@ -32,7 +31,7 @@
             </li>
                 {% else %}
             <li>
-                Class Full
+                Class Full - Booking unavailable
             </li>
             {% endif %}
         </ul>
@@ -40,7 +39,7 @@
 
     <section>
 
-    <h2>A list of members</h2>
+    <h2>Class Bookings</h2>
     
     <ul>
         {% for booking in bookings %}

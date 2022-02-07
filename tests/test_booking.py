@@ -12,7 +12,3 @@ class TestBooking(unittest.TestCase):
         self.booking = Booking(self.member_1, self.gym_class)
         self.booking_2 = Booking(self.member_2, self.gym_class)
         self.bookings = [self.booking, self.booking_2]
-
-    def test_spaces_available(self):
-        result = self.booking.spaces_available(self.bookings, self.gym_class)
-        self.assertEqual(True, result)

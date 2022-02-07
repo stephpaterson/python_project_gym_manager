@@ -1,6 +1,9 @@
+from tabnanny import check
+
+
 class GymClass:
 
-    def __init__(self, name, instructor, location, date, time, capacity, id = None ):
+    def __init__(self, name, instructor, location, date, time, capacity, id = None, availability = None ):
         self.name = name
         self.instructor = instructor
         self.location = location
@@ -8,10 +11,14 @@ class GymClass:
         self.time = time
         self.capacity = capacity
         self.id = id
+        self.availability = availability
 
-    def capacity_check_space_available(self, member_list):
-        number_bookings = len(member_list)
-        if number_bookings >= self.capacity:
+    def check_space_available(self, member_count):
+        if member_count >= self.capacity:
             return False
-        elif number_bookings < self.capacity:
+        elif member_count < self.capacity:
             return True
+    
+    def set_availability(self, member_count):
+        availability = self.check_space_available(member_count)
+        self.availability = availability
