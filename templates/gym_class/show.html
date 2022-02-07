@@ -14,6 +14,7 @@
         <li>{{gym_class.date.strftime('%a %d %B %y')}}</li>
         <li>{{gym_class.time.strftime('%H:%M')}}</li>
         <li>{{gym_class.capacity}}</li>
+        <li>{{gym_class.id}}</li>
         
         <li><a href="/gym_classes/{{gym_class.id}}/edit">Edit Class</a></li>
     </ul>
@@ -27,7 +28,7 @@
                 Spaces available
             </li>
             <li>
-                    <p><a href="/bookings/new">Add New Booking</a></p>
+                    <p><a href="/gym_classes/{{gym_class.id}}/bookings/new">Add New Booking</a></p>
             </li>
                 {% else %}
             <li>

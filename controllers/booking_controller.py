@@ -24,7 +24,7 @@ def new_booking():
     members = member_repo.select_all()
     return render_template('/booking/new.html', gym_classes=gym_classes, members=members)
 
-@booking_blueprint.route('/bookings', methods=['POST'])
+@booking_blueprint.route('/bookings/', methods=['POST'])
 def create_booking():
     member_id = request.form['member_id']
     gym_class_id = request.form['gym_class_id']
@@ -32,7 +32,43 @@ def create_booking():
     gym_class = gym_class_repo.select_id(gym_class_id)
     booking = Booking(member, gym_class)
     booking_repo.save(booking)
-    return redirect('/gym_classes')
+    return redirect('/bookings/')
+
+# Booking from gym_class
+
+@booking_blueprint.route('/gym_classes/<id>/bookings/new')
+def new_booking_gym_class(id):
+    gym_class = gym_class_repo.select_id(id)
+    members = member_repo.select_all()
+    return render_template('/booking/new_gym.html', gym_class=gym_class, members=members)
+
+@booking_blueprint.route('/bookings/gym_class', methods=['POST'])
+def create_booking_by_gym_class():
+    member_id = request.form['member_id']
+    gym_class_id = request.form['gym_class_id']
+    member = member_repo.select_by_id(member_id)
+    gym_class = gym_class_repo.select_id(gym_class_id)
+    booking = Booking(member, gym_class)
+    booking_repo.save(booking)
+    return redirect(f'/gym_classes/{gym_class_id}')
+
+# Booking from member
+
+@booking_blueprint.route('/members/<id>/bookings/new')
+def new_booking_member(id):
+    gym_classes = gym_class_repo.select_all()
+    member = member_repo.select_by_id(id)
+    return render_template('/booking/new_member.html', gym_classes=gym_classes, member=member)
+
+@booking_blueprint.route('/bookings/member', methods=['POST'])
+def create_booking_by_member():
+    member_id = request.form['member_id']
+    gym_class_id = request.form['gym_class_id']
+    member = member_repo.select_by_id(member_id)
+    gym_class = gym_class_repo.select_id(gym_class_id)
+    booking = Booking(member, gym_class)
+    booking_repo.save(booking)
+    return redirect(f'/members/{member_id}')
 
 @booking_blueprint.route('/bookings/<id>/delete', methods=['POST'])
 def delete_booking(id):
