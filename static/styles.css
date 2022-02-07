@@ -31,10 +31,20 @@ main {
 
 aside {
     width: 30%;
+    min-width: 200px;
+    border-right: grey solid 2px;
+    padding: 10px 20px;
 }
 
-section {
-    width: 65%;
+aside>ul{
+    list-style: none;
+    padding-left: 0;
+    line-height: 1.5;
+}
+
+.bookings {
+    width: 60%;
+    padding: 10px 20px;
 }
 
 hgroup {
