@@ -36,7 +36,7 @@ aside {
     padding: 10px 20px;
 }
 
-aside>ul{
+.show>ul{
     list-style: none;
     padding-left: 0;
     line-height: 1.5;
@@ -51,9 +51,24 @@ hgroup {
     display: flex;
     justify-content: space-between;
     align-items:baseline;
-    width: 80%;
+    width: 90%;
 }
 
+h2 {
+    text-transform: uppercase;
+}
+
+a {
+    text-decoration: none;
+    background-color: #73174B;
+    color: white;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+.book {
+    background-color: #017073;
+}
 
 
 

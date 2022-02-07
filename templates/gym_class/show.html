@@ -5,7 +5,7 @@
 
 {% block content %}
 
-<aside>
+<aside class="show">
     <h2>Class details</h2>
     <ul>
         <li>Class name: {{gym_class.name}}</li>
@@ -20,14 +20,14 @@
 </aside>
 
 <section class="bookings">
-    <section>
+    <section class="show">
         <ul>
             {% if availability == True %}
             <li>
                 Spaces available
             </li>
             <li>
-                    <p><a href="/gym_classes/{{gym_class.id}}/bookings/new">Add New Booking</a></p>
+                    <p><a class="book" href="/gym_classes/{{gym_class.id}}/bookings/new">Book a Place</a></p>
             </li>
                 {% else %}
             <li>
@@ -37,7 +37,7 @@
         </ul>
     </section>
 
-    <section>
+    <section class="show">
 
     <h2>Class Bookings</h2>
     
