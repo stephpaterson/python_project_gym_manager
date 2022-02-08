@@ -9,13 +9,13 @@ gym_classes_blueprint = Blueprint("gym_classes", __name__)
 
 @gym_classes_blueprint.route("/gym_classes")
 def gym_classes():
-    gym_classes = gym_class_repo.select_all()
+    gym_classes = gym_class_repo.select_future()
     gym_class_avail = []
     for gym_class in gym_classes:
         count = gym_class_repo.count_members(gym_class)
         gym_class.set_availability(count)
         gym_class_avail.append(gym_class)
-    return render_template("gym_class/index.html", gym_classes=gym_classes, gym_class_avail=gym_class_avail)
+    return render_template("gym_class/index.html", gym_class_avail=gym_class_avail)
 
 @gym_classes_blueprint.route("/gym_classes/new", methods = ['GET'])
 def gym_class_new():

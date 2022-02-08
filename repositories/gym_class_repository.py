@@ -67,6 +67,34 @@ def select_id(id):
 
     return gym_class    
 
+# Select only courses in the future
+
+def select_future():
+    gym_classes = []
+    
+    sql = """
+    SELECT * FROM gym_classes
+    WHERE date > NOW()
+    ORDER BY date, time
+    """
+    results = run_sql(sql)
+
+    for row in results:
+        gym_class = GymClass(
+            row['name'], 
+            row['instructor'],
+            row['location'],
+            row['date'],
+            row['time'],
+            row['capacity'],
+            row['status'],
+            row['id']
+            )
+        gym_classes.append(gym_class)
+
+    return gym_classes
+
+
 # Select only active courses
 
 def select_active():

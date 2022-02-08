@@ -9,8 +9,11 @@ import repositories.booking_repository as booking_repo
 
 gym_class_repo.delete_all()
 
-gym_class_1 = GymClass('Spin', 'Beth', 'Studio 1', '01/02/2021', '10:00', 5, 'active')
+gym_class_1 = GymClass('Spin', 'Beth', 'Studio 1', '2022-02-01', '10:00', 5, 'active')
 gym_class_repo.save(gym_class_1)
+
+gym_class_2 = GymClass('Spin', 'Beth', 'Studio 1', '2022-02-20', '10:00', 5, 'active')
+gym_class_repo.save(gym_class_2)
 
 member_1 = Member('David', 'Henderson', '019876', 'david@email.com')
 member_repo.save(member_1)
@@ -22,9 +25,6 @@ booking_repo.save(booking_2)
 
 member_count = gym_class_repo.count_members(gym_class_1)
 print(gym_class_repo.select_all())
-print(member_repo.select_all())
-print (member_count)
-
-print(gym_class_repo.select_active())
+print(gym_class_repo.select_future() )
 
 pdb.set_trace()
