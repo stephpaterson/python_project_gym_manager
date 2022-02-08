@@ -10,14 +10,14 @@
         <div>
             <label for="gym_class_id">Class:</label>
             <select name="gym_class_id" id="gym_class_id" required="required">
-                    <option value="{{gym_class.id}}">{{ gym_class.name}}</option>
+                    <option value="{{gym_class.id}}">{{ gym_class.name}} {{ gym_class.date }}</option>
             </select>
         </div>
         <div>
             <label for="member_id">Member:</label>
             <select name="member_id" id="member_id" required="required">
                 {% for member in members %}
-                    <option value="{{member.id}}">{{ member.first_name}}</option>
+                    <option value="{{member.id}}">{{ member.first_name}} {{ member.last_name }}</option>
                 {% endfor %}
             </select>
         </div>

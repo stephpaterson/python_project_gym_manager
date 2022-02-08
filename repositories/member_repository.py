@@ -85,7 +85,7 @@ def search_by_name(name):
 
     sql = """
     SELECT * FROM members
-    WHERE first_name LIKE %s OR last_name LIKE %s
+    WHERE first_name ILIKE %s OR last_name ILIKE %s
     """
     values = [ '%'+name+'%' , '%'+name+'%' ]
     results = run_sql(sql, values)
