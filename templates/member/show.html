@@ -23,7 +23,7 @@
         <li>Date: {{ booking.gym_class.date }}</li>
         <li>Time: {{ booking.gym_class.time }}</li>
         <li>
-            <form action="/bookings/{{ booking.id }}/delete" method="POST">
+            <form action="/members/{{member.id}}/bookings/{{booking.id}}/delete" method="POST">
                 <button>Delete Booking</button>
             </form>
         </li>

@@ -74,3 +74,8 @@ def create_booking_by_member():
 def delete_booking(id):
     booking_repo.delete_by_id(id)
     return redirect('/bookings')
+
+@booking_blueprint.route('/members/<m_id>/bookings/<id>/delete', methods=['POST'])
+def delete_member_booking(m_id, id):
+    booking_repo.delete_by_id(id)
+    return redirect(f'/members/{m_id}')
