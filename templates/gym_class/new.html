@@ -5,30 +5,31 @@
 {% block content %}
 <h2>Add a new gym class</h2>
 <section class="form-new">
+    <p>All feilds are required</p>
     <form action="/gym_classes" method="post">
         <div>
             <label for="name">Class name:</label>
-            <input type="text" id="name" name="name">
+            <input type="text" id="name" name="name" required="required">
         </div>
         <div>
             <label for="instructor">Instructor:</label>
-            <input type="text" id="instructor" name="instructor">
+            <input type="text" id="instructor" name="instructor" required="required">
         </div>
         <div>
             <label for="location">Location:</label>
-            <input type="text" id="location" name="location">
+            <input type="text" id="location" name="location" required="required">
         </div>
         <div>
             <label for="date">Date:</label>
-            <input type="date" id="date" name="date">
+            <input type="date" id="date" name="date" required="required">
         </div>
         <div>
             <label for="time">Time:</label>
-            <input type="time" id="time" name="time">
+            <input type="time" id="time" name="time" required="required">
         </div>
         <div>
             <label for="capacity">Capacity</label>
-            <input type="number" id="capacity" name="capacity">
+            <input type="number" id="capacity" name="capacity" required="required">
         </div>
         <div>
             <button class="add" type="submit">Add Class</button>

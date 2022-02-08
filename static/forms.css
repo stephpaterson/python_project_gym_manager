@@ -18,6 +18,11 @@
     justify-content: flex-end;
 }
 
+.form-new>p {
+    text-align: right;
+    font-style: italic;
+}
+
 .add{
     background-color: #017073;
     color: white;
