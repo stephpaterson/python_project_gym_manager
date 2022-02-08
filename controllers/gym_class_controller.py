@@ -29,7 +29,8 @@ def create_gym_class():
     date = request.form['date']
     time = request.form['time']
     capacity = request.form['capacity']
-    gym_class = GymClass(name, instructor, location, date, time, capacity)
+    status = 'active'
+    gym_class = GymClass(name, instructor, location, date, time, capacity, status)
     gym_class_repo.save(gym_class)
     return redirect('/gym_classes')
 
@@ -54,6 +55,7 @@ def update_class(id):
     date = request.form['date']
     time = request.form['time']
     capacity = request.form['capacity']
-    gym_class = GymClass(name, instructor, location, date, time, capacity, id)
+    status = request.form['status']
+    gym_class = GymClass(name, instructor, location, date, time, capacity, status, id)
     gym_class_repo.update(gym_class)
     return redirect('/gym_classes')

@@ -14,6 +14,7 @@
         <li>Date: {{gym_class.date.strftime('%a %d %B %y')}}</li>
         <li>Time: {{gym_class.time.strftime('%H:%M')}}</li>
         <li>Capacity: {{gym_class.capacity}}</li>
+        <li>Class Status: {{ gym_class.status }}</li>
         
         <li><a href="/gym_classes/{{gym_class.id}}/edit">Edit Class</a></li>
     </ul>
