@@ -97,12 +97,13 @@ def select_future():
 
 # Select only active courses
 
-def select_active():
+def select_active_future():
     gym_classes = []
     
     sql = """
     SELECT * FROM gym_classes
     WHERE status = %s
+    AND date > NOW()
     ORDER BY date, time
     """
     values = ['active']

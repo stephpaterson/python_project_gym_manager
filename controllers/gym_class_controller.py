@@ -9,9 +9,9 @@ gym_classes_blueprint = Blueprint("gym_classes", __name__)
 
 @gym_classes_blueprint.route("/gym_classes")
 def gym_classes():
-    gym_classes_future = gym_class_repo.select_future()
+    gym_classes_future_active = gym_class_repo.select_active_future()
     gym_classes = []
-    for gym_class in gym_classes_future:
+    for gym_class in gym_classes_future_active:
         count = gym_class_repo.count_members(gym_class)
         gym_class.set_availability(count)
         gym_classes.append(gym_class)
