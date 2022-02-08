@@ -20,7 +20,7 @@ def gym_classes():
 @gym_classes_blueprint.route("/gym_classes/all")
 def gym_classes_all():
     gym_classes = gym_class_repo.select_all()
-    return render_template("gym_class/index.html", gym_classes=gym_classes, page_type="All Classes")
+    return render_template("gym_class/all.html", gym_classes=gym_classes)
 
 @gym_classes_blueprint.route("/gym_classes/new", methods = ['GET'])
 def gym_class_new():
