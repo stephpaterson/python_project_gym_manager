@@ -26,7 +26,8 @@ class GymClass:
 
     def change_status_inactive(self):
         # Need to convert date to an integer
-        gym_class_date = datetime.date.fromisoformat(self.date)
+        gym_class_date_str =str(self.date)
+        gym_class_date = datetime.date.fromisoformat(gym_class_date_str)
         today = datetime.date.today()
         # if status is active
         if self.status == "active":

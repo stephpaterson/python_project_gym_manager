@@ -19,7 +19,11 @@ def gym_classes():
 
 @gym_classes_blueprint.route("/gym_classes/all")
 def gym_classes_all():
-    gym_classes = gym_class_repo.select_all()
+    gym_classes_all = gym_class_repo.select_all()
+    gym_classes = []
+    for gym_class in gym_classes_all:
+        gym_class.change_status_inactive()
+        gym_classes.append(gym_class)
     return render_template("gym_class/all.html", gym_classes=gym_classes)
 
 @gym_classes_blueprint.route("/gym_classes/new", methods = ['GET'])
