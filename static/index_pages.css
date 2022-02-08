@@ -1,0 +1,15 @@
+.grid_table {
+    display: grid;
+    grid-template-areas:
+    'header header'
+    'table table'
+    ;
+}
+
+.table_header {
+    grid-area: header;
+}
+
+.table {
+    grid-area: table;
+}

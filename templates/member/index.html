@@ -3,40 +3,40 @@
 {% block title %} Members {% endblock %}
 
 {% block content %}
+<main class="grid_table">
+    <hgroup class="table_header">
+        <h2>Member List</h2>
+        <form action="/members" method="GET">
+            <input type="text" name="search">
+            <input type="submit" value="Search By Name">
+        </form>
+        <a href="/members/new">Add New Member</a>
+    </hgroup>
 
-<hgroup>
-<h2>Member List</h2>
-<form action="/members" method="GET">
-    <input type="text" name="search">
-    <input type="submit" value="Search By Name">
-</form>
-<a href="/members/new">Add New Member</a>
-</hgroup>
-
-<table>
-    <thead>
-        <tr>
-            <th>First name</th>
-            <th>Last name</th>
-            <th>Phone number</th>
-            <th>Email</th>
-            <th></th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-        {% for member in members %}
-        <tr>
-        <td>{{ member.first_name }}</td>
-        <td>{{ member.last_name }}</td>
-        <td>{{ member.phone_number }}</td>
-        <td>{{ member.email }}</td>
-        <td><a class="book" href="/members/{{member.id}}/bookings/new">Book a Class</a></td>
-        <td><a href="/members/{{member.id}}">View Details</a></td>
-        </tr>
-        {% endfor %}    
-    </tbody>
-</table>
-
+    <table class="'table">
+        <thead>
+            <tr>
+                <th>First name</th>
+                <th>Last name</th>
+                <th>Phone number</th>
+                <th>Email</th>
+                <th></th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for member in members %}
+            <tr>
+            <td>{{ member.first_name }}</td>
+            <td>{{ member.last_name }}</td>
+            <td>{{ member.phone_number }}</td>
+            <td>{{ member.email }}</td>
+            <td><a class="book" href="/members/{{member.id}}/bookings/new">Book a Class</a></td>
+            <td><a href="/members/{{member.id}}">View Details</a></td>
+            </tr>
+            {% endfor %}    
+        </tbody>
+    </table>
+</main>
     
 {% endblock %}

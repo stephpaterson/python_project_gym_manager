@@ -1,0 +1,37 @@
+.grid_show {
+    display: grid;
+    grid-template-areas: 
+    'show booking';
+    grid-template-columns: 3fr 7fr;
+}
+
+.show_details {
+    grid-area: show;
+    min-width: 200px;
+    border-right: grey solid 2px;
+    padding: 10px 20px;
+}
+
+.booking_view {
+    grid-area: booking;
+    grid-template-areas: 
+    '. button'
+    'show show'
+    ;
+    grid-template-columns: 7fr 3fr;
+    padding: 10px 20px;
+}
+
+.book_button {
+    grid-area: button;
+}
+
+.show_booking {
+    grid-area: show;
+}
+
+.grid_show ul{
+    list-style: none;
+    padding-left: 0;
+    line-height: 1.5;
+}

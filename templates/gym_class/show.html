@@ -4,58 +4,59 @@
 {% block title %} Class Details {% endblock %}
 
 {% block content %}
+<main class="grid_show">
 
-<aside class="show">
-    <h2>Class details</h2>
-    <ul>
-        <li>Class name: {{gym_class.name}}</li>
-        <li>Instructor: {{gym_class.instructor}}</li>
-        <li>Location: {{gym_class.location}}</li>
-        <li>Date: {{gym_class.date.strftime('%a %d %B %y')}}</li>
-        <li>Time: {{gym_class.time.strftime('%H:%M')}}</li>
-        <li>Capacity: {{gym_class.capacity}}</li>
-        <li>Class Status: {{ gym_class.status}}</li>
-        
-        <li><a href="/gym_classes/{{gym_class.id}}/edit">Edit Class</a></li>
-    </ul>
-</aside>
-
-<section class="bookings">
-    <section class="show">
+    <aside class="show_details">
+        <h2>Class details</h2>
         <ul>
-            {% if availability == True %}
-            <li>
-                Spaces available
-            </li>
-            <li>
-                    <p><a class="book" href="/gym_classes/{{gym_class.id}}/bookings/new">Book a Place</a></p>
-            </li>
-                {% else %}
-            <li>
-                Class Full - Booking unavailable
-            </li>
-            {% endif %}
+            <li>Class name: {{gym_class.name}}</li>
+            <li>Instructor: {{gym_class.instructor}}</li>
+            <li>Location: {{gym_class.location}}</li>
+            <li>Date: {{gym_class.date.strftime('%a %d %B %y')}}</li>
+            <li>Time: {{gym_class.time.strftime('%H:%M')}}</li>
+            <li>Capacity: {{gym_class.capacity}}</li>
+            <li>Class Status: {{ gym_class.status}}</li>
+            
+            <li><a href="/gym_classes/{{gym_class.id}}/edit">Edit Class</a></li>
         </ul>
-    </section>
+    </aside>
 
-    <section class="show">
+    <section class="booking_view">
+        <section class="book_button">
+            <ul>
+                {% if availability == True %}
+                <li>
+                    Spaces available
+                </li>
+                <li>
+                        <p><a class="book" href="/gym_classes/{{gym_class.id}}/bookings/new">Book a Place</a></p>
+                </li>
+                    {% else %}
+                <li>
+                    Class Full - Booking unavailable
+                </li>
+                {% endif %}
+            </ul>
+        </section>
 
-    <h2>Class Bookings</h2>
-    
-    <ul>
-        {% for booking in bookings %}
-        <li>{{ booking.member.first_name }} {{ booking.member.last_name }}</li>
-        <li>
-            <form action="/gym_classes/{{gym_class.id}}/bookings/{{ booking.id }}/delete" method="POST">
-                <button>Delete Booking</button>
-            </form>
-        </li>
-        {% endfor %}
-    </ul>
+        <section class="show_bookings">
 
-    </section>    
+        <h2>Class Bookings</h2>
+        
+        <ul>
+            {% for booking in bookings %}
+            <li>{{ booking.member.first_name }} {{ booking.member.last_name }}</li>
+            <li>
+                <form action="/gym_classes/{{gym_class.id}}/bookings/{{ booking.id }}/delete" method="POST">
+                    <button class="delete">Delete Booking</button>
+                </form>
+            </li>
+            {% endfor %}
+        </ul>
+
+        </section>    
     
 </section>
-
+</main>
 
 {% endblock %}

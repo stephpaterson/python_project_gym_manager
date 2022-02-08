@@ -10,7 +10,7 @@
         <div>
             <label for="gym_class_id">Class:</label>
             <select name="gym_class_id" id="gym_class_id" required="required">
-                    <option value="{{gym_class.id}}">{{ gym_class.name}} {{ gym_class.date }}</option>
+                    <option value="{{gym_class.id}}">{{ gym_class.name}} - {{ gym_class.date.strftime('%a %d %B %y') }}</option>
             </select>
         </div>
         <div>

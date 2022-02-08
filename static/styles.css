@@ -2,6 +2,30 @@ body {
     font-family: Arial, Helvetica, sans-serif;
 }
 
+a {
+    text-decoration: none;
+    background-color: #73174B;
+    box-shadow: 2px 2px 2px #5a123b;
+    color: white;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+.book {
+    background-color: #017073;
+    box-shadow: 2px 2px 2px #017073;
+}
+
+.delete {
+    background-color: #73174B;
+    color: white;
+    border: None;
+    border-radius: 5px;
+    padding: 0.25em 0.75em;
+    box-shadow: 2px 2px 2px #5a123b ;
+    min-height: 30px;
+}
+
 nav {
     background-color: #73174B;
     color: white;
@@ -21,25 +45,7 @@ nav>ul>li {
 nav>ul>li>a {
     color: white;
     text-decoration: none;
-}
-
-main {
-    display: flex;
-    flex-flow: row wrap ;
-    justify-content: space-around;
-}
-
-aside {
-    width: 30%;
-    min-width: 200px;
-    border-right: grey solid 2px;
-    padding: 10px 20px;
-}
-
-.show>ul{
-    list-style: none;
-    padding-left: 0;
-    line-height: 1.5;
+    box-shadow: none;
 }
 
 .bookings {
@@ -57,18 +63,5 @@ hgroup {
 h2 {
     text-transform: uppercase;
 }
-
-a {
-    text-decoration: none;
-    background-color: #73174B;
-    color: white;
-    padding: 5px;
-    border-radius: 5px;
-}
-
-.book {
-    background-color: #017073;
-}
-
 
 
