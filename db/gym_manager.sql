@@ -17,7 +17,8 @@ CREATE TABLE gym_classes (
     location VARCHAR(255),
     date DATE,
     capacity INT,
-    time time
+    time time,
+    status VARCHAR(255)
 );
 
 CREATE TABLE bookings (
