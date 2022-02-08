@@ -32,6 +32,7 @@ class GymClass:
         if self.status == "active":
         # compare the class date to the time now
             if gym_class_date < today:
-                self.status = "inactive"
         # if date in past set to inactive
+                self.status = "inactive"
+        
         

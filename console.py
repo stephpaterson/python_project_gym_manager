@@ -25,5 +25,6 @@ print(gym_class_repo.select_all())
 print(member_repo.select_all())
 print (member_count)
 
+print(gym_class_repo.select_active())
 
 pdb.set_trace()

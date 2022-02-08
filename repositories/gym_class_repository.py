@@ -67,6 +67,34 @@ def select_id(id):
 
     return gym_class    
 
+# Select only active courses
+
+def select_active():
+    gym_classes = []
+    
+    sql = """
+    SELECT * FROM gym_classes
+    WHERE status = %s
+    ORDER BY date, time
+    """
+    values = ['active']
+    results = run_sql(sql, values)
+
+    for row in results:
+        gym_class = GymClass(
+            row['name'], 
+            row['instructor'],
+            row['location'],
+            row['date'],
+            row['time'],
+            row['capacity'],
+            row['status'],
+            row['id']
+            )
+        gym_classes.append(gym_class)
+
+    return gym_classes
+
 
 # UPDATE
 
