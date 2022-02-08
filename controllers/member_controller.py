@@ -10,8 +10,13 @@ members_blueprint = Blueprint("members", __name__)
 
 @members_blueprint.route('/members')
 def show_all():
-    members = member_repo.select_all()
-    return render_template('/member/index.html', members=members)
+    search = request.args.get('search')
+    if search:
+        members = member_repo.search_by_name(search)
+        return render_template('/member/index.html', members=members)
+    else:
+        members = member_repo.select_all()
+        return render_template('/member/index.html', members=members)
 
 @members_blueprint.route('/members/new', methods=['GET'])
 def new_member():

@@ -24,9 +24,12 @@ booking_2 = Booking(member_1, gym_class_1)
 booking_repo.save(booking_2)
 
 member_count = gym_class_repo.count_members(gym_class_1)
-print(gym_class_repo.select_all())
-print(gym_class_repo.select_future() )
+# print(gym_class_repo.select_all())
+# print(gym_class_repo.select_future() )
 
-print(gym_class_repo.select_active_future())
+# print(gym_class_repo.select_active_future())
+
+search = member_repo.search_by_name('David')
+print(search)
 
 pdb.set_trace()

@@ -78,3 +78,19 @@ def gym_classes(member):
         gym_class = GymClass(row['name'], row['instructor'], row['location'], row['date'], row['time'], row['id'])
         gym_classes.append(gym_class)
     return gym_classes
+
+def search_by_name(name):
+
+    search_results = []
+
+    sql = """
+    SELECT * FROM members
+    WHERE first_name LIKE %s OR last_name LIKE %s
+    """
+    values = [ '%'+name+'%' , '%'+name+'%' ]
+    results = run_sql(sql, values)
+
+    for row in results:
+        member = Member(row['first_name'], row['last_name'], row['phone_number'], row['email'], row['id'])
+        search_results.append(member)
+    return search_results
