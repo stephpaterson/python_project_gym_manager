@@ -1,4 +1,4 @@
-from tabnanny import check
+import datetime
 
 
 class GymClass:
@@ -23,3 +23,15 @@ class GymClass:
     def set_availability(self, member_count):
         availability = self.check_space_available(member_count)
         self.availability = availability
+
+    def change_status_inactive(self):
+        # Need to convert date to an integer
+        gym_class_date = datetime.date.fromisoformat(self.date)
+        today = datetime.date.today()
+        # if status is active
+        if self.status == "active":
+        # compare the class date to the time now
+            if gym_class_date < today:
+                self.status = "inactive"
+        # if date in past set to inactive
+        

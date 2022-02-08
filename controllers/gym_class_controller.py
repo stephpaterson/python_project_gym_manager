@@ -30,6 +30,8 @@ def create_gym_class():
     time = request.form['time']
     capacity = request.form['capacity']
     status = 'active'
+    print(date)
+    print(type(date))
     gym_class = GymClass(name, instructor, location, date, time, capacity, status)
     gym_class_repo.save(gym_class)
     return redirect('/gym_classes')
