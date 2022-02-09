@@ -1,8 +1,14 @@
+.form {
+    margin: auto;
+    width: 80%;
+}
+
 .form-new {
     border: #73174B solid 2px;
     border-radius: 5px;
     padding: 20px;
     background-color: white;
+    width: 70%;
 }
 
 .form-new>form {
@@ -45,5 +51,10 @@ input {
 
 select {
     width: 45%;
-    min-width: 30ch;
+    min-width: 27ch;
+}
+
+.status{
+    width: 45%;
+    text-transform: capitalize;
 }

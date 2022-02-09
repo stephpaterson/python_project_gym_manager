@@ -14,6 +14,7 @@ a {
 .book {
     background-color: #017073;
     box-shadow: 2px 2px 2px #017073;
+    min-width: 15ch;
 }
 
 .delete {
@@ -27,7 +28,7 @@ a {
 }
 
 nav {
-    background-color: #73174B;
+    background-color: black;
     color: white;
 }
 
@@ -46,6 +47,7 @@ nav>ul>li>a {
     color: white;
     text-decoration: none;
     box-shadow: none;
+    background-color: black;
 }
 
 .bookings {
@@ -53,15 +55,13 @@ nav>ul>li>a {
     padding: 10px 20px;
 }
 
-hgroup {
-    display: flex;
-    justify-content: space-between;
-    align-items:baseline;
-    width: 90%;
-}
-
 h2 {
     text-transform: uppercase;
 }
 
-
+/* footer {
+    background-color: black;
+    color: white;
+    text-align: center;
+    height: max-content;
+} */

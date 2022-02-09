@@ -1,8 +1,9 @@
+
 table {
-    width: 90%;
     border-collapse: collapse;
-    border: #73174B solid 2px;
+    border: #73174B solid 1px;
     background-color: white;
+    width: 90%;
 }
 
 thead {
@@ -19,4 +20,5 @@ th {
 td {
     padding: 10px 10px;
     text-align: left;
+    min-width: 10ch;
 }

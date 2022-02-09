@@ -3,25 +3,46 @@
 {% block title %} Edit Class {% endblock %}
 
 {% block content %}
-    Edit class details
-    <form action="/gym_classes/{{gym_class.id}}" method="post">
-        <label for="name">Class name:</label>
-        <input type="text" id="name" name="name" value="{{gym_class.name}}">
-        <label for="instructor">Instructor:</label>
-        <input type="text" id="instructor" name="instructor" value="{{gym_class.instructor}}">
-        <label for="location">Location:</label>
-        <input type="text" id="location" name="location" value="{{gym_class.location}}">
-        <label for="date">Date:</label>
-        <input type="text" id="date" name="date" value="{{gym_class.date}}">
-        <label for="time">Time:</label>
-        <input type="text" id="time" name="time" value="{{gym_class.time}}">
-        <label for="capacity">Capacity</label>
-        <input type="number" id="capacity" name="capacity" value="{{gym_class.capacity}}">
-        <label for="capacity">Status</label>
-        <select name="status" id="status" required="required">
-            <option value="active">active</option>
-            <option value="cancelled">cancelled</option>
-        </select>
-        <button type="submit">Update</button>
-    </form>
+<main class="form">
+    <h2>Edit gym class details</h2>
+    <section class="form-new">
+        <p>All feilds are required</p>
+        <form action="/gym_classes/{{gym_class.id}}" method="post">
+            <div>
+                <label for="name">Class name:</label>
+                <input type="text" id="name" name="name" value="{{gym_class.name}}">
+            </div>
+            <div>
+                <label for="instructor">Instructor:</label>
+                <input type="text" id="instructor" name="instructor" value="{{gym_class.instructor}}">
+            </div>
+            <div>
+                <label for="location">Location:</label>
+                <input type="text" id="location" name="location" value="{{gym_class.location}}">
+            </div>
+            <div>
+                <label for="date">Date:</label>
+                <input type="text" id="date" name="date" value="{{gym_class.date}}">
+            </div>
+            <div>
+                <label for="time">Time:</label>
+                <input type="text" id="time" name="time" value="{{gym_class.time}}">
+            </div>
+            <div>
+                <label for="capacity">Capacity</label>
+                <input type="number" id="capacity" name="capacity" value="{{gym_class.capacity}}">
+            </div>
+            <div>
+                <label for="capacity">Status</label>
+                <select class="status" name="status" id="status" required="required">
+                    <option value="active">active</option>
+                    <option value="cancelled">cancelled</option>
+                </select>
+            </div>
+            <div>
+                <button class="add" type="submit">Update</button>
+            </div>
+        </form>
+    </section>
+</main>
 {% endblock content %}

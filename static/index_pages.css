@@ -1,15 +1,19 @@
-.grid_table {
-    display: grid;
-    grid-template-areas:
-    'header header'
-    'table table'
-    ;
+.flex_table {
+    display: flex;
+    flex-wrap: wrap;
+    width: 90%;
+    justify-content: center;
 }
 
 .table_header {
-    grid-area: header;
+    display: flex;
+    align-items:baseline;
+    justify-content: space-between;
+    width: 90%;
 }
 
 .table {
     grid-area: table;
+    align-self: center;
+    width: 90%;
 }

@@ -3,14 +3,14 @@
 {% block title %} Members {% endblock %}
 
 {% block content %}
-<main class="grid_table">
+<main class="flex_table">
     <hgroup class="table_header">
-        <h2>Member List</h2>
-        <form action="/members" method="GET">
-            <input type="text" name="search">
-            <input type="submit" value="Search By Name">
+        <h2 class="header_h2">Member List</h2>
+        <form class="header_form" action="/members" method="GET">
+            <input type="text" name="search" placeholder="Search by name">
+            <input type="submit" value="Search">
         </form>
-        <a href="/members/new">Add New Member</a>
+        <a class="header_button" href="/members/new">Add New Member</a>
     </hgroup>
 
     <table class="'table">
