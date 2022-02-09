@@ -4,29 +4,25 @@
 
 {% block content  %}
 A list of bookings
-
-<table>
-    <thead>
-        <tr>
-            <td>Member name</td>
-            <td>Class name</td>
-            <td></td>
-        </tr>
-    </thead>
-    <tbody>
-        {% for booking in bookings %}
-        <tr>
-            <td>{{booking.member.first_name}}</td>
-            <td>{{booking.gym_class.name}}</td>
-            <td><a href="/bookings/{{ booking.id }}">View Details</a></td>
-        </tr>
-        {% endfor %}
-    </tbody>
-</table>
-
-<ul>
-    
-</ul>
-
+<main>
+    <table>
+        <thead>
+            <tr>
+                <td>Member name</td>
+                <td>Class name</td>
+                <td></td>
+            </tr>
+        </thead>
+        <tbody>
+            {% for booking in bookings %}
+            <tr>
+                <td>{{booking.member.first_name}}</td>
+                <td>{{booking.gym_class.name}}</td>
+                <td><a href="/bookings/{{ booking.id }}">View Details</a></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</main>
 
 {% endblock  %}

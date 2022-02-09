@@ -15,7 +15,7 @@ def gym_classes():
         count = gym_class_repo.count_members(gym_class)
         gym_class.set_availability(count)
         gym_classes.append(gym_class)
-    return render_template("gym_class/index.html", gym_classes=gym_classes, page_type="Upcoming Classes")
+    return render_template("gym_class/index.html", gym_classes=gym_classes)
 
 @gym_classes_blueprint.route("/gym_classes/all")
 def gym_classes_all():

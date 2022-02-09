@@ -59,9 +59,34 @@ h2 {
     text-transform: uppercase;
 }
 
-/* footer {
-    background-color: black;
+.home {
+    background-image: url(/static/img/gym_weights-min.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 10px 150px 150px 100px;
+    color: #73174B;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+.home>h2{
+    font-size: 6em;
     color: white;
-    text-align: center;
-    height: max-content;
-} */
+    background-color: black;
+    font-stretch: expanded;   
+}
+
+.home>h3 {
+    font-size: 3em;
+    background-color: black;
+    line-height: 2em;
+    margin-bottom: 0;
+}
+
+.home>p {
+    font-size: 2em;
+    background-color: black;
+    color: #017073;
+    line-height: 2em;
+    margin-top: 0;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif 
+}

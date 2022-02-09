@@ -1,8 +1,8 @@
 from flask import Flask, render_template
 
-from controllers.gym_class_controller import gym_classes_blueprint
-from controllers.member_controller import members_blueprint
-from controllers.booking_controller import booking_blueprint
+from controllers.gym_classes_controller import gym_classes_blueprint
+from controllers.members_controller import members_blueprint
+from controllers.bookings_controller import booking_blueprint
 
 app = Flask(__name__)
 
