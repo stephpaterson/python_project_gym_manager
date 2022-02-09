@@ -24,23 +24,21 @@
     <section class="flex_show_bookings">
 
     <h2>Class Bookings</h2>
-    
-    <ul>
-        {% for booking in bookings %}
-        <li>{{ booking.member.first_name }} {{ booking.member.last_name }}</li>
-        <li>
-            <form action="/gym_classes/{{gym_class.id}}/bookings/{{ booking.id }}/delete" method="POST">
-                <button class="delete">Delete Booking</button>
-            </form>
-        </li>
-        {% endfor %}
-    </ul>
-
+    {% for booking in bookings %}
+        <ul>
+            <li>{{ booking.member.first_name }} {{ booking.member.last_name }}</li>
+            <li>
+                <form action="/gym_classes/{{gym_class.id}}/bookings/{{ booking.id }}/delete" method="POST">
+                    <button class="delete">Delete Booking</button>
+                </form>
+            </li>
+        </ul>
+    {% endfor %}
     </section>  
     
     <section class="flex_book_button">
         <ul>
-            {% if availability == True %}
+            {% if availability == True and gym_class.status == "active" %}
     
             <li>
                     <p><a class="book" href="/gym_classes/{{gym_class.id}}/bookings/new">Book a Place</a></p>
@@ -48,7 +46,7 @@
             
                 {% else %}
             <li>
-                Class Full - Booking unavailable
+                Booking unavailable
             </li>
             {% endif %}
         </ul>

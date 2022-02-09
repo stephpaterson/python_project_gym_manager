@@ -17,21 +17,20 @@
         
         <section class="flex_show_bookings">        
             <h2>Member bookings</h2>
-            <ul>
-
-                {% for booking in bookings %}
-                <li>Class name: {{ booking.gym_class.name }}</li>
-                <li>Instructor: {{ booking.gym_class.instructor }}</li>
-                <li>Location: {{ booking.gym_class.location }}</li>
-                <li>Date: {{ booking.gym_class.date }}</li>
-                <li>Time: {{ booking.gym_class.time }}</li>
-                <li>
-                    <form action="/members/{{member.id}}/bookings/{{booking.id}}/delete" method="POST">
-                        <button class="delete">Delete Booking</button>
-                    </form>
-                </li>
-                {% endfor %}
-            </ul>
+            {% for booking in bookings %}
+                <ul>  
+                    <li>Class name: {{ booking.gym_class.name }}</li>
+                    <li>Instructor: {{ booking.gym_class.instructor }}</li>
+                    <li>Location: {{ booking.gym_class.location }}</li>
+                    <li>Date: {{ booking.gym_class.date }}</li>
+                    <li>Time: {{ booking.gym_class.time }}</li>
+                    <li>
+                        <form action="/members/{{member.id}}/bookings/{{booking.id}}/delete" method="POST">
+                            <button class="delete">Delete Booking</button>
+                        </form>
+                    </li>
+                </ul>
+            {% endfor %}
         </section>
         
         <section class="flex_book_button">
