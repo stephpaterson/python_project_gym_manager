@@ -69,4 +69,4 @@ def update_class(id):
     status = request.form['status']
     gym_class = GymClass(name, instructor, location, date, time, capacity, status, id)
     gym_class_repo.update(gym_class)
-    return redirect('/gym_classes')
+    return redirect(f'/gym_classes/{id}')

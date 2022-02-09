@@ -56,7 +56,12 @@ def create_booking_by_gym_class():
 
 @booking_blueprint.route('/members/<id>/bookings/new')
 def new_booking_member(id):
-    gym_classes = gym_class_repo.select_all()
+    gym_classes_future_active = gym_class_repo.select_active_future()
+    gym_classes = []
+    for gym_class in gym_classes_future_active:
+        count = gym_class_repo.count_members(gym_class)
+        gym_class.set_availability(count)
+        gym_classes.append(gym_class)
     member = member_repo.select_by_id(id)
     return render_template('/booking/new_member.html', gym_classes=gym_classes, member=member)
 

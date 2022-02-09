@@ -18,12 +18,12 @@ a {
 }
 
 .delete {
-    background-color: #73174B;
+    background-color: grey;
     color: white;
     border: None;
     border-radius: 5px;
     padding: 0.25em 0.75em;
-    box-shadow: 2px 2px 2px #5a123b ;
+    box-shadow: 2px 2px 2px black ;
     min-height: 30px;
 }
 
@@ -88,5 +88,5 @@ h2 {
     color: #017073;
     line-height: 2em;
     margin-top: 0;
-    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif 
+
 }

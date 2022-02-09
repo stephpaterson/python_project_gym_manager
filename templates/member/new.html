@@ -3,19 +3,31 @@
 {% block title %} New Member {% endblock %}
 
 {% block content %}
-<h2>Add a new member</h2>
-<section class="form-new">
-    <p>All feilds are required</p>
-    <form action="/members" method="post">
-        <label for="first_name">First name:</label>
-        <input type="text" id="fist_name" name="first_name" required="required">
-        <label for="last_name">Last name:</label>
-        <input type="text" id="last_name" name="last_name" required="required">
-        <label for="phone_number">Phone number:</label>
-        <input type="text" id="phone_number" name="phone_number" required="required">
-        <label for="email">Email:</label>
-        <input type="email" id="email" name="email" required="required">
-        <button class="add" type="submit">Add Member</button>
-    </form>
-</section>
+<main class="form">
+    <h2>Add a new member</h2>
+    <section class="form-new">
+        <p>All feilds are required</p>
+        <form action="/members" method="post">
+            <div>
+                <label for="first_name">First name:</label>
+                <input type="text" id="fist_name" name="first_name" required="required">
+            </div>
+            <div>
+                <label for="last_name">Last name:</label>
+                <input type="text" id="last_name" name="last_name" required="required">
+            </div>
+            <div>
+                <label for="phone_number">Phone number:</label>
+                <input type="text" id="phone_number" name="phone_number" required="required">
+            </div>
+            <div>
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required="required">
+            </div>
+            <div>
+                <button class="add" type="submit">Add Member</button>
+            </div>
+        </form>
+    </section>
+</main>
 {% endblock content %}
