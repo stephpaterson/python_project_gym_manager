@@ -4,9 +4,9 @@
 {% block title %} Class Details {% endblock %}
 
 {% block content %}
-<main class="grid_show">
+<main class="flex_show">
 
-    <aside class="show_details">
+    <aside class="flex_show_details">
         <h2>Class details</h2>
         <ul>
             <li>Class name: {{gym_class.name}}</li>
@@ -21,42 +21,39 @@
         </ul>
     </aside>
 
-    <section class="booking_view">
-        <section class="book_button">
-            <ul>
-                {% if availability == True %}
-                <li>
-                    Spaces available
-                </li>
-                <li>
-                        <p><a class="book" href="/gym_classes/{{gym_class.id}}/bookings/new">Book a Place</a></p>
-                </li>
-                    {% else %}
-                <li>
-                    Class Full - Booking unavailable
-                </li>
-                {% endif %}
-            </ul>
-        </section>
+    <section class="flex_show_bookings">
 
-        <section class="show_bookings">
-
-        <h2>Class Bookings</h2>
-        
-        <ul>
-            {% for booking in bookings %}
-            <li>{{ booking.member.first_name }} {{ booking.member.last_name }}</li>
-            <li>
-                <form action="/gym_classes/{{gym_class.id}}/bookings/{{ booking.id }}/delete" method="POST">
-                    <button class="delete">Delete Booking</button>
-                </form>
-            </li>
-            {% endfor %}
-        </ul>
-
-        </section>    
+    <h2>Class Bookings</h2>
     
-</section>
+    <ul>
+        {% for booking in bookings %}
+        <li>{{ booking.member.first_name }} {{ booking.member.last_name }}</li>
+        <li>
+            <form action="/gym_classes/{{gym_class.id}}/bookings/{{ booking.id }}/delete" method="POST">
+                <button class="delete">Delete Booking</button>
+            </form>
+        </li>
+        {% endfor %}
+    </ul>
+
+    </section>  
+    
+    <section class="flex_book_button">
+        <ul>
+            {% if availability == True %}
+    
+            <li>
+                    <p><a class="book" href="/gym_classes/{{gym_class.id}}/bookings/new">Book a Place</a></p>
+            </li>
+    
+                {% else %}
+            <li>
+                Class Full - Booking unavailable
+            </li>
+            {% endif %}
+        </ul>
+    </section>
+    
 </main>
 
 {% endblock %}

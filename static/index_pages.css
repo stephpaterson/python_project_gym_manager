@@ -1,4 +1,5 @@
 .flex_table {
+    margin: auto;
     display: flex;
     flex-wrap: wrap;
     width: 90%;
@@ -16,4 +17,23 @@
     grid-area: table;
     align-self: center;
     width: 90%;
+}
+
+.table_button {
+    white-space: nowrap;
+}
+
+.header_form>.text {
+    min-width: 30ch;
+}
+
+.header_form>.search_button {
+    width: fit-content;
+    background-color: grey;
+    color: white;
+    border: None;
+    border-radius: 5px;
+    padding: 0.25em 0.75em;
+    box-shadow: 2px 2px 2px black ;
+    min-height: 30px;
 }

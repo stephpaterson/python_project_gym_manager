@@ -7,8 +7,8 @@
     <hgroup class="table_header">
         <h2 class="header_h2">Member List</h2>
         <form class="header_form" action="/members" method="GET">
-            <input type="text" name="search" placeholder="Search by name">
-            <input type="submit" value="Search">
+            <input class="text" type="text" name="search" placeholder="Search by name">
+            <input class="search_button" type="submit" value="Search">
         </form>
         <a class="header_button" href="/members/new">Add New Member</a>
     </hgroup>
@@ -31,8 +31,8 @@
             <td>{{ member.last_name }}</td>
             <td>{{ member.phone_number }}</td>
             <td>{{ member.email }}</td>
-            <td><a class="book" href="/members/{{member.id}}/bookings/new">Book a Class</a></td>
-            <td><a href="/members/{{member.id}}">View Details</a></td>
+            <td class="table_button"><a class="book" href="/members/{{member.id}}/bookings/new">Book a Class</a></td>
+            <td class="table_button"><a href="/members/{{member.id}}">View Details</a></td>
             </tr>
             {% endfor %}    
         </tbody>

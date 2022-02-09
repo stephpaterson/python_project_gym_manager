@@ -37,7 +37,7 @@
                     <td>
                     Spaces available
                     </td>
-                    <td><a class="book" href="/gym_classes/{{gym_class.id}}/bookings/new">Book a Place</a></td>
+                    <td class="table_button"><a class="book" href="/gym_classes/{{gym_class.id}}/bookings/new">Book a Place</a></td>
                     {% else %}
                     <td>
                     Class Full
@@ -46,7 +46,7 @@
                         Not available
                     </td>
                     {% endif %}
-                <td><a href="/gym_classes/{{gym_class.id}}">View Details</a></td>
+                <td class="table_button"><a href="/gym_classes/{{gym_class.id}}">View Details</a></td>
 
             </tr>
             {% endfor %}
