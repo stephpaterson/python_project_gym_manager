@@ -10,14 +10,16 @@ This project was set by CodeClan as part of the Professional Software Developmen
 - The app should show a list of all upcoming classes
 - The app should show all members that are booked in for a particular class
 
+The project went on to complete a few extensions:
+- The availability to manage class capacities and display availability to the user.
+- Update the status of classes to account for cancelled classes and those that took place in the past.
+- The ability to search by member names.
+
 #### Tech Stack
 
 This is a fully functioning CRUD app created with the following:
 
 - Python
 - Flask
-- Postgresql
-- HTML and CSS (no javascript of frameworks allowed)
-
-#### How to run it locally
-- Clone the repo and navigate to the route directory, and run the 'Flask Run' command in the terminal.
+- Postgresql & psycopg2
+- HTML and CSS (no javascript or frameworks allowed)
