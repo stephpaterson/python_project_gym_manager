@@ -11,7 +11,7 @@ This project was set by CodeClan as part of the Professional Software Developmen
 - The app should show all members that are booked in for a particular class
 
 The project went on to complete a few extensions:
-- The availability to manage class capacities and display availability to the user.
+- The ability to manage class capacities and display availability to the user.
 - Update the status of classes to account for cancelled classes and those that took place in the past.
 - The ability to search by member names.
 
