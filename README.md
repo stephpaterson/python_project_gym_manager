@@ -23,3 +23,10 @@ This is a fully functioning CRUD app created with the following:
 - Flask
 - Postgresql & psycopg2
 - HTML and CSS (no javascript or frameworks allowed)
+
+
+https://user-images.githubusercontent.com/96059379/154314570-a37f361d-f122-478a-beb5-0ce912077fee.mov
+
+#### How to Run
+
+You will need Python3, Flask, postgres and psycopg2 installed. Clone the repo and run the command 'flask run' in the terminal from the project root directory.
