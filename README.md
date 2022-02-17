@@ -29,4 +29,16 @@ https://user-images.githubusercontent.com/96059379/154314570-a37f361d-f122-478a-
 
 #### How to Run
 
-You will need Python3, Flask, postgres and psycopg2 installed. Clone the repo and run the command 'flask run' in the terminal from the project root directory.
+You will need Python3, Flask, postgres and psycopg2 installed.
+
+Clone the repo and create a database via the terminal: 
+
+```createdb <databse name>```
+
+You'll then need to run the SQL file with psql in the terminal:
+
+```psql -d <data base name> -f gym_manager.sql```
+
+Finally, run the command following command in the terminal from the project root directory:
+
+```flask run```
